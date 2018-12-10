@@ -18,6 +18,7 @@ import java.nio.FloatBuffer
 import java.util.*
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
+import kotlin.collections.ArrayList
 
 /**
  * Created by irinagalata on 1/19/17.
@@ -34,7 +35,7 @@ class PickerRenderer(val glView: View) : GLSurfaceView.Renderer {
             Engine.radius = value
         }
     var listener: BubblePickerListener? = null
-    lateinit var items: ArrayList<PickerItem>
+    var items: ArrayList<PickerItem> = ArrayList()
     val selectedItems: List<PickerItem?>
         get() = Engine.selectedBodies.map { circles.firstOrNull { circle -> circle.circleBody == it }?.pickerItem }
     var centerImmediately = false

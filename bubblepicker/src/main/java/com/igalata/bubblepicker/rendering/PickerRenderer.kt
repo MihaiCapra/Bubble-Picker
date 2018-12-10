@@ -74,6 +74,9 @@ class PickerRenderer(val glView: View) : GLSurfaceView.Renderer {
     }
 
     private fun initialize() {
+        if (items.isEmpty()) {
+            return
+        }
         clear()
         Engine.centerImmediately = centerImmediately
         Engine.build(items.size, scaleX, scaleY).forEachIndexed { index, body ->
